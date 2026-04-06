@@ -1,0 +1,25 @@
+<div id="statisticBody">
+    <h2 id="statisticsHeader">Zoo Statistics</h2>
+
+    <div class="zooStatistics">
+        <h3>Total Number of Animals</h3>
+        <p><strong>Total Count: </strong>{{ totalAnimals }} animals</p>
+        <p><strong>Listed Species: </strong>{{ totalSpecies }} species</p>
+    </div>
+
+    <hr>
+
+    <div class="zooStatistics">
+        <h3>Exhibit Status</h3>
+        <p><strong>Open Exhibits: </strong><span id="exhibitOpen">{{ openedAnimals }}</span></p>
+        <p><strong>Closed Exhibits: </strong><span id="exhibitClosed">{{ closedAnimals }}</span></p>
+    </div>
+
+    <hr>
+
+    <div class="zooStatistics">
+        <h3>Health Status</h3>
+        <p><strong>Healthy Animals: </strong><span id="healthy"> {{ healthyAnimals }}</span></p>
+        <p><strong>Sick Animals: </strong><span id="sick"> {{ sickAnimals }}</span></p>
+    </div>
+</div>

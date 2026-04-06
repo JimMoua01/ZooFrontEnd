@@ -1,0 +1,54 @@
+ [
+    {
+        "id": 1,
+        "name": "Henri",
+        "species": "Elephant",
+        "count": 5,
+        "gender": "Male",
+        "health": "Healthy",
+        "status": "Open",
+        "latitude": 45.5,
+        "longitude": -90.7,
+        "feeding": "5:00 PM",
+        "image" : "/images/elephant.png" 
+    },
+    {
+        "id": 2,
+        "name": "Aurora",
+        "species": "Tiger",
+        "count": 8,
+        "gender": "Female",
+        "health": "Healthy",
+        "status": "Open",
+        "latitude": 44.5,
+        "longitude": -91.2,
+        "feeding": "8:00 AM",
+        "image" : "/images/tiger.png" 
+    },
+    {
+        "id": 3,
+        "name": "Cliff",
+        "species": "Panda",
+        "count": 4,
+        "gender": "Male",
+        "health": "Healthy",
+        "status": "Open",
+        "latitude": 43.5, 
+        "longitude": -89.6,
+        "feeding": "12:00 PM",
+        "image" : "/images/panda.png" 
+    },
+    {
+        "id": 4,
+        "name": "Caeser",
+        "species": "Monkey",
+        "count": 7,
+        "gender": "Male",
+        "health": "Sick",
+        "status": "Open",
+        "latitude": 40.5, 
+        "longitude": -90.3,
+        "feeding": "9:00 AM",
+        "image" : "/images/monkey.png" 
+    }
+]

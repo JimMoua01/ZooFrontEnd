@@ -1,0 +1,33 @@
+<div class="statHeaders">
+    <div id="statusStatistics">
+        <h2 id="status">Status: <span id="zooOpenCloseStatus">{{ status }}</span></h2>
+        @if (authService.isLoggedIn())
+        {
+            <div id="zooButtons">
+                @if (status == 'Closed') {
+                    <button type="button" (click)="updateZooStatus('Open')" id="openZoo">Open Zoo</button>
+                }
+                @if (status == 'Open') {
+                    <button type="button" (click)="updateZooStatus('Closed')" id="closeZoo">Close Zoo</button>
+                }
+            </div>
+        }
+    </div>
+
+    <div id="visitorStatistics">
+        <div id="visitorLabel">
+            <h2>Number of Visitors: {{ visitors }} </h2>
+            <h2 id="visitorNum"></h2>
+        </div>
+
+        @if (authService.isLoggedIn())
+        {
+            <div id="guestButtons">
+                <form #visitorForm="ngForm" (ngSubmit)="updateVisitorCount(visitorForm)">
+                    <input ngModel type="number" name="visitorCount" min="0" #visitorCount="ngModel" required />
+                    <button type="submit" [disabled]="visitorForm.invalid">Update</button>
+                </form>
+            </div>
+        }
+    </div>
+</div>

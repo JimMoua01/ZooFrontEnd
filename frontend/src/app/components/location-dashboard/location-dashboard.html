@@ -1,0 +1,28 @@
+<div id="locationDashboard">
+    <h2>Visitor Information</h2>
+ 
+    <div id="serviceLocations">
+        <div class="visitorStats">
+            <h3>Visitor Kiosks</h3>
+            <p><strong>North Kiosk Location: </strong><span id="northKiosk">{{ northKiosk.latitude }}, {{ northKiosk.longitude }}</span></p>
+            <p><strong>East Kiosk Location: </strong><span id="eastKiosk">{{ eastKiosk.latitude }}, {{ eastKiosk.longitude }}</span></p>
+            <p><strong>South Kiosk Location: </strong><span id="southKiosk">{{ southKiosh.latitude }}, {{ southKiosh.longitude }}</span></p>
+            <p><strong>West Kiosk Location: </strong><span id="westKiosk">{{ westKiosk.latitude }}, {{ westKiosk.longitude }}</span></p>
+        </div>
+
+        <hr>
+
+        <div class="visitorStats">
+            <h3>Emergency Location</h3>
+            <p><strong>Emergency Location: </strong><span id="emergencyLocation">{{ emergencyService.latitude }}, {{ emergencyService.longitude }}</span></p>
+        </div>
+
+        <hr>
+
+        <div class="visitorStats">
+            <h3>Maintenance Locations</h3>
+            <p><strong>Maintenance Location: </strong><span id="mLocationA">{{ maintenanceStationA.latitude }}, {{ maintenanceStationA.longitude }}</span></p>
+            <p><strong>Maintenance Location: </strong><span id="mLocationB">{{ maintenanceStationB.latitude }}, {{ maintenanceStationB.longitude }}</span></p>
+        </div>
+    </div>
+</div>

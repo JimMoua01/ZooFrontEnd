@@ -1,0 +1,396 @@
+/* You can add global styles to this file, and also import other style files */
+/*******************************/
+/****** Universal Elements *****/
+/*******************************/
+
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Trebuchet MS', sans-serif;
+    background: #F4EBD9;
+}
+
+.body {
+    width: 90%;
+    justify-self: center;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+button {
+    position: relative;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-weight: bold;
+    box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.4);
+}
+
+hr.bigDivider {
+    margin-top: 60px;
+    margin-bottom: 50px;
+}
+
+.error-input {
+    color: red;
+}
+
+/************************/
+/****** Top Display *****/
+/************************/
+
+.banner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 0 auto;
+    height: 150px;
+    background: #CC5500;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.statHeaders {
+    display: flex;
+    justify-self: center;
+    justify-content: space-around;
+    align-items: center;
+    width: 80%;
+    padding: 10px 20px;
+    border: solid black 2px;
+    border-radius: 25px;
+    background: #D0DFD7;
+}
+
+h1#zooTitle, h2#zooOpenCloseStatus, h2#status, h2#statisticsHeader, h1#seeOurAnimals {
+    text-align: center;
+}
+
+ div#zooButtons {
+    text-align: center;
+    justify-content: center;
+}
+
+div#zooButtons, div#loginButtons, button#login, button#logout {
+    display: block;
+}
+
+button#displayBtn, button#rdisplayBtn {
+    display: block;
+    justify-self: center;
+}
+
+div#visitorInformation, div#loginButtons {
+    justify-items: center;
+    margin: 15px 10px;
+}
+
+div#visitorLabel, div#guestButtons, div#zooButtons {
+    display: flex;
+    justify-content: center;
+}
+
+/************************/
+/**** Zoo Statistics ****/
+/************************/
+
+div#topWrapper {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+/* div#statisticBody { */
+app-statistic-dashboard {
+    justify-self: center;
+    width: 40%;
+    padding: 10px 15px 15px 15px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    border: 2px solid black;
+    border-radius: 25px;
+    background: #D0DFD7;
+}
+
+#statisticBody button, #locationDashboard button {
+    position: relative;
+    display: block;
+    margin: auto;
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+div#statisticBody h3, div.visitorStats h3 {
+    justify-self: center;
+}
+
+div.zooStatistics, div.visitorStats {
+    padding: 5px 10px;
+}
+
+
+/************************/
+/**** Zoo Dashboards ****/
+/************************/
+
+/* div#adminDashboard, div#locationDashboard { */
+div#adminDashboard, app-location-dashboard {
+    background: #D0DFD7;
+    justify-self: center;
+    width: 800px;
+    padding-top: 10px;
+    padding-bottom: 25px;
+    border: 2px solid black;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+div#adminDashboard > div#adminStatistics{
+    justify-self: center;
+    background: snow;
+    width: 80%;
+    border: solid black;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+}
+
+div#adminStatistics > p {
+    padding: 5px;
+    justify-self: center;
+}
+
+div#adminDashboard > h2, div#locationDashboard > h2 {
+    justify-self: center;
+}
+
+div#adminDashboard {
+    border-radius: 25px;
+}
+
+/* div#locationDashboard { */
+app-location-dashboard {
+    width: 40%;
+    border-radius: 25px;
+    padding: 10px 15px 15px 15px;
+}
+
+/************************/
+/**** Animal Display ****/
+/************************/
+
+#displayBtn, #rdisplayBtn {
+    position: relative;
+    width: 15%;
+    height: 50px;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+
+div#allAnimals {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.animalCard {
+    background: #D0DFD7;
+    border: 2px solid;
+    padding: 15px;
+    margin: 10px;
+    width: 525px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+.card-Top h3 {
+    margin: 0 0 5px 0;
+    text-align: center;
+    font-weight: 500;
+}
+
+.card-Top h2 {
+    margin: 15px auto 10px auto;
+}
+
+.animalCard .card-Left {
+    width: 35%;
+}
+
+.animalCard .card-Right {
+    width: 65%;
+    padding: 0 10px 5px 10px;
+}
+
+.animalCard .card-Body {
+    display: flex;
+    flex-direction: row;
+}
+
+.animalCard p, .animalCard h2, .animalCard h3 {
+    padding: 0;
+}
+
+.animalCard h2, .animalCard h3 {
+    justify-self: center;
+    text-align: center;
+}
+
+div#allAnimals img {
+    display: block;
+    width: 150px;
+    height: 150px;
+    margin: 15px 20px;
+    /* padding: 10px; */
+    border-radius: 5px;
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+/************************/
+/***** Form Content *****/
+/************************/
+
+div#formLayout {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin-bottom: 50px;
+}
+
+form.submissionForm {
+    margin-top: 10px;
+    padding: 10px 20px;
+    width: 600px;
+    height: fit-content;
+    border: solid;
+    background-color: #D0DFD7;
+}
+
+form span {
+    display: block;
+}
+
+form label {
+    display: block;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+form > select {
+    display: block;
+    margin-bottom: 10px;
+}
+
+form > input#memberSubmit, form >input#animalBookingSubmit {
+    display: block;
+    margin-top: 10px;
+}
+
+form h2 {
+    text-align: center;
+}
+
+.formRowLayout {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 5px;
+}
+
+#animalForm {
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    width: 85%;
+    border-radius: 25px;
+    margin: 10px auto 25px auto;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+#animalForm h2 {
+    display: block;
+}
+
+#animalForm label {
+    margin-bottom: 5px;
+}
+
+#animalForm button {
+    position: relative;
+    width: 20%;
+    padding: 15px 0;
+    margin: 20px auto 15px auto;
+    border-radius: 25px;
+}
+
+#animalForm button:hover, #statisticBody button:hover, #locationPermission:hover, #displayBtn:hover, #rdisplayBtn:hover, div#formLayout form input:last-child:hover, button:hover {
+    cursor: pointer;
+}
+
+#animalForm button:active, #statisticBody button:active, #locationPermission:active, #displayBtn:active, #rdisplayBtn:active, div#formLayout form input:last-child:active, button:active {
+    top: 1px;
+}
+
+#animalFormContent {
+    display: flex;
+    justify-content: space-around;
+}
+
+.formLeft, .formMiddle1, .formMiddle3, .formRight {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.formMiddle3, .formRight {
+    justify-content: space-around;
+}
+
+#animalForm input, #animalForm select, div#formLayout input, div#formLayout select, div#formLayout textarea, div#guestButtons input {
+    display: block;
+    padding: 7.5px;
+    border-radius: 5px;
+}
+
+h1#formTitle {
+    justify-self: center;
+}
+
+div#formLayout form {
+    margin: 1px;
+    padding: 10px 30px 30px 30px;
+    border-radius: 25px;
+}
+
+div#formLayout span {
+    margin-top: 5px;
+}
+
+div#formLayout form input:last-child {
+    position: relative;
+    padding: 10px 20px;
+    font-weight: bold;
+    font-size: 0.9em;
+    box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.4);
+}
+
+div#formLayout form input[type="submit"] {
+    width: 100%;
+}
+
+select#formSelection{
+    display: flex;
+    justify-self: center;
+    padding: 12px 10px;
+    margin: 5px 0 15px 0;
+    border-radius: 5px;
+}
+
+#guestButtons form {
+    display: flex;
+}

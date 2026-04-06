@@ -1,0 +1,179 @@
+<form id="animalForm" class="submissionForm" #animalForm="ngForm" (ngSubmit) = "submitAnimal(animalForm)">
+    <h2>Create an Animal Form</h2>
+
+    <div id="animalFormContent">
+        <div class="formLeft">
+            <div class="formRowLayout">
+                <label for="animalName">Name*</label>
+                <input type="text" id="animalName" name="animalName" [(ngModel)] = "newAnimal.name" #animalName="ngModel" required/>
+                @if (animalName.invalid && animalName.touched)
+                {
+                <div>
+                    @if (animalName.errors?.['required'])
+                    {
+                        <span class="error-input">Name is Required</span>
+                    }
+                </div>
+                }
+            </div>
+
+            <div class="formRowLayout">
+                <label for="animalSpecies">Species*</label>
+                <input type="text" id="animalSpecies" name="animalSpecies" [(ngModel)] = "newAnimal.species" #animalSpecies="ngModel" required/>
+                @if (animalSpecies.invalid && animalSpecies.touched)
+                {
+                <div>
+                    @if (animalSpecies.errors?.['required'])
+                    {
+                        <span class="error-input">Species is Required</span>
+                    }
+                </div>
+                }
+            </div>
+
+            <div class="formRowLayout">
+                <label for="animalCount">Count*</label>
+                <input type="number" id="animalCount" name="animalCount" step="1" [(ngModel)] = "newAnimal.count" #animalCount="ngModel" min="1" required/>
+                @if (animalCount.invalid && animalCount.touched)
+                {
+                <div>
+                    @if (animalCount.errors?.['required'])
+                    {
+                        <span class="error-input">Count is required</span>
+                    }
+                    @if (animalCount.errors?.['min'])
+                    {
+                        <span class="error-input">Minimum count is 1</span>
+                    }
+                </div>
+                }
+            </div>
+        </div>
+
+        <div class="formMiddle1">
+            <div class="formRowLayout">
+                <label for="animalGender">Gender*</label>
+                <select id="animalGender" name="animalGender"[(ngModel)] = "newAnimal.gender" #animalGender="ngModel" required>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
+                @if (animalGender.invalid && animalGender.touched)
+                {
+                <div>
+                    @if (animalGender.errors?.['required'])
+                    {
+                        <span class="error-input">Gender is Required</span>
+                    }
+                </div>
+                }
+            </div>
+
+            <div class="formRowLayout">
+                <label for="animalHealth">Health*</label>
+                <select id="animalHealth" name="animalHealth" [(ngModel)] = "newAnimal.health" #animalHealth="ngModel" required>
+                    <option value="Healthy">Healthy</option>
+                    <option value="Sick">Sick</option>
+                </select>
+                @if (animalHealth.invalid && animalHealth.touched)
+                {
+                <div>
+                    @if (animalHealth.errors?.['required'])
+                    {
+                        <span class="error-input">Health is Required</span>
+                    }
+                </div>
+                }
+            </div>
+
+            <div class="formRowLayout">
+                <label for="animalStatus">Exhibit Status*</label>
+                <select id="animalStatus" name="animalStatus" [(ngModel)] = "newAnimal.status" #animalStatus="ngModel" required>
+                    <option value="Open">Open</option>
+                    <option value="Closed">Closed</option>
+                </select>
+                @if (animalStatus.invalid && animalStatus.touched)
+                {
+                <div>
+                    @if (animalStatus.errors?.['required'])
+                    {
+                        <span class="error-input">Exhibit Status is Required</span>
+                    }
+                </div>
+                }
+            </div>
+        </div>
+
+        <div class="formMiddle3">
+            <div class="formRowLayout">
+                <label for="animalLongitude">Longitude Location*</label>
+                <input type="number" id="animalLongitude" name="animalLongitude" step="0.1" placeholder="-90.1" [(ngModel)] = "newAnimal.longitude" #animalLongitude="ngModel" min="-180" max="180" required/>
+                @if (animalLongitude.invalid && animalLongitude.touched)
+                {
+                <div>
+                    @if (animalLongitude.errors?.['required'])
+                    {
+                        <span class="error-input">Longitude is Required</span>
+                    }
+                    @if (animalLongitude.errors?.['min'])
+                    {
+                        <span class="error-input">Minimum longitude is -180</span>
+                    }
+                    @if (animalLongitude.errors?.['max'])
+                    {
+                        <span class="error-input">Maximum longitude is 180</span>
+                    }
+                </div>
+                }
+            </div>
+
+            <div class="formRowLayout">
+                <label for="animalLatitude">Latitude Location*</label>
+                <input type="number" id="animalLatitude" name="animalLatitude" step="0.1" placeholder="40.7" [(ngModel)] = "newAnimal.latitude" #animalLatitude="ngModel"  min="-90" max="90" required/>
+                @if (animalLatitude.invalid && animalLatitude.touched)
+                {
+                <div>
+                    @if (animalLatitude.errors?.['required'])
+                    {
+                        <span class="error-input">Latitude is Required</span>
+                    }
+                    @if (animalLatitude.errors?.['min'])
+                    {
+                        <span class="error-input">Minimum latitude is -90</span>
+                    }
+                    @if (animalLatitude.errors?.['max'])
+                    {
+                        <span class="error-input">Maximum latitude is 90</span>
+                    }
+                </div>
+                }
+            </div>
+        </div>
+
+        <div class="formRight">
+            <div class="formRowLayout">
+                <label for="animalFeedingTime">Feeding Time*</label>
+                <input type="time" id="animalFeedingTime" name="animalFeedingTime" [(ngModel)] = "newAnimal.feeding" #animalFeed="ngModel" required/>
+                @if (animalFeed.invalid && animalFeed.touched)
+                {
+                <div>
+                    @if (animalFeed.errors?.['required'])
+                    {
+                        <span class="error-input">Feeding Time is Required</span>
+                    }
+                </div>
+                }
+            </div>
+
+            <div class="formRowLayout">
+                <label for="animalImage">Image*</label>
+                <input type="file" id="animalImage" name="animalImage" accept="image/*" #imageInput (change)="onFileSelected($event)" required/>
+                @if(!newAnimal.image && animalForm.submitted)
+                {
+                    <span class="error-input">Image is Required</span>
+                }
+            </div>
+        </div>
+    </div>
+    
+    <button id="animalCreationButton" [disabled]="animalForm.invalid || !newAnimal.image">Submit Animal</button>
+</form>

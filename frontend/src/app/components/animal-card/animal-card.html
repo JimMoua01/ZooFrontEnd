@@ -1,0 +1,17 @@
+<div class="animalCard">
+    <div class="card-Top">
+        <h2>{{animal.name}} the {{animal.species}}</h2>
+        <h3>( Currently {{animal.status}} )</h3>
+    </div>
+    <div class="card-Body">
+        <div class="card-Left">
+            <img [src]="animal.image"  />
+        </div>
+        <div class="card-Right">
+            <h3><b>Exhibit Location:</b> {{animal.latitude}}, {{animal.longitude}}</h3>
+            <p><b>Gender:</b> {{animal.gender}}</p>
+            <p><b>Health Status:</b> {{animal.health}}</p>
+            <p><b>Family Count:</b> {{animal.count}} </p>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,106 @@
+<h1 id="formTitle">Zoo Forms</h1>
+
+<select [(ngModel)]="selectedForm" name="selectedForm" id="formSelection">
+    <option value="member">Membership Registration</option>
+    <option value="booking">Booking</option>
+    <option value="contact">Contact Information</option>
+</select>
+
+<div id="formLayout">
+    <form [hidden]="selectedForm !== 'member'" #memberForm="ngForm" (ngSubmit)="submitForm(memberForm)" id="membershipRegistration" class="submissionForm">
+        <h2 id="memberTitle">Membership Registration</h2>
+
+            <div class="formRowLayout">
+                <label for="fname">Member First Name*</label>
+                <input type="text" id="fname" name="fname" placeholder="FirstName" ngModel required/>
+            </div>
+
+            <div class="formRowLayout">
+                <label for="lname">Member Last Name*</label>
+                <input type="text" id="lname" name="lname" placeholder="LastName" ngModel required/>
+            </div>
+
+            <div class="formRowLayout">
+                <label for="email">Email*</label>
+                <input type="email" id="email" name="email" placeholder="abc@example.com" ngModel required/>
+            </div>
+            
+            <div class="formRowLayout">
+                <label for="memberShipType">Membership Type</label>
+                <select id="memberShipType" name="memberShipType">
+                    <option value="Individual">Individual</option>
+                    <option value="Family">Family</option>
+                    <option value="Senior">Senior</option>
+                </select>
+            </div>
+
+            <div class="formRowLayout">
+                <label for="date">Start Date*</label>
+                <input type="date" id="date" name="date" ngModel required/>
+            </div>
+
+            <div class="formRowLayout">
+                <label for="phone">Emergency Contact Information</label>
+                <input type="tel" id="phone" name="phone" placeholder="123-456-7890" ngModel/>
+            </div>
+
+        <input id="memberSubmit" type="submit" value="Submit">
+    </form>
+
+    <form [hidden]="selectedForm !== 'booking'" #bookingForm="ngForm" (ngSubmit)="submitForm(bookingForm)" id="animalBooking" class="submissionForm" >
+        <h2 id="animalBookingTitle">Booking</h2>
+
+        <div class="formRowLayout">
+            <label for="vfname">Visitor First Name*</label>
+            <input type="text" id="vfname" name="vfname" placeholder="FirstName" ngModel required/>
+        </div>
+
+        <div class="formRowLayout">
+            <label for="vlname">Visitor Last Name*</label>
+            <input type="text" id="vlname" name="vlname" placeholder="LastName" ngModel required/>
+        </div>
+
+        <div class="formRowLayout">
+            <label for="vphone">Contact Information*</label>
+            <input type="tel" id="vphone" name="vphone" placeholder="123-456-7890" ngModel required/>
+        </div>
+
+        <div class="formRowLayout">
+            <label for="vdate">Preferred Date and Time*</label>
+            <input type="datetime-local" id="vdate" name="vdate" ngModel required/>
+        </div>
+
+        <div class="formRowLayout">
+            <label for="vsize">Group Size*</label>
+            <input type="number" id="vsize" name="vsize" ngModel required/>
+        </div>
+
+        <input id="animalBookingSubmit" type="submit" value="Submit"/>
+    </form>
+
+    <form [hidden]="selectedForm !== 'contact'" #contactForm="ngForm" (ngSubmit)="submitForm(contactForm)" id="contactInformation" class="submissionForm" action="/" method="GET">
+        <h2 id="contactInformationTitle">Contact Information</h2>
+
+        <div class="formRowLayout">
+            <label for="cfname">First Name*</label>
+            <input type="text" id="cfname" name="cfname" placeholder="FirstName" ngModel required/>
+        </div>
+
+        <div class="formRowLayout">
+            <label for="clname">Last Name*</label>
+            <input type="text" id="clname" name="clname" placeholder="LastName" ngModel required/>
+        </div>
+
+        <div class="formRowLayout">
+            <label>Email</label>
+            <input type="email" id="cemail" name="cemail" placeholder="abc@example.com" ngModel required/>
+        </div>
+
+        <div class="formRowLayout">
+            <label for="cdescription">Extra Information:</label>
+            <textarea name="cdescription" id="cdescription" rows="4" placeholder="Type here..." ngModel></textarea>
+        </div>
+
+        <input id="contactInformationSubmit" type="submit" value="Submit"/>
+    </form>
+</div>

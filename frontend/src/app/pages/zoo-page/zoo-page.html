@@ -1,0 +1,39 @@
+<div class="banner">
+    <h1 id="zooTitle">Welcome to the NTC Zoo!</h1>
+</div>
+
+<div class="body">
+    <div id="loginButtons">
+        @if (!authService.isLoggedIn()) {
+            <button type="button" id="login" (click)="authService.login()" >Login</button>
+        }
+        @else
+        {
+            <button type="button" id="logout" (click)="authService.logout()">Log Out</button>
+        }
+    </div>
+    
+    <app-zoo-controls [status] = "status" [visitors]="visitors" [animals]="animals" (visitorUpdate)="onVisitorUpdate()" (statusUpdate)="onZooStatusUpdate()" (animalUpdate)="onAnimalAdded()"></app-zoo-controls>
+    <div id="topWrapper">
+        <app-location-dashboard></app-location-dashboard>
+        <app-statistic-dashboard [animals] = "animals"></app-statistic-dashboard>
+    </div>
+
+    <hr class="bigDivider" />
+
+    @if (authService.isLoggedIn()) {
+        <app-add-animal-form (animalAdded)="onAnimalAdded()" [animals]="animals"></app-add-animal-form>
+    }
+
+    <br/>
+    <h1 id="seeOurAnimals">See Our Animals!</h1>
+    <br/>
+
+    <div id="allAnimals">
+        <app-animal-card *ngFor="let animal of animals" [animal]="animal"></app-animal-card>
+    </div>
+
+    <hr class="bigDivider" />
+
+    <app-zoo-forms></app-zoo-forms>
+</div>
