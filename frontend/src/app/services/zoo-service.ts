@@ -9,8 +9,9 @@ import { BehaviorSubject, Observable, tap } from 'rxjs';
 export class ZooService {
 
   // api = "http://localhost:3000";
-  api = "http://localhost:5230/api/zoo"
+  // api = "http://localhost:5230/api/zoo"
   // api = "https://ntczoobackend.onrender.com";
+  api = "https://zoobackendapi.onrender.com/api/zoo"
 
   constructor(private http: HttpClient) {}
 
