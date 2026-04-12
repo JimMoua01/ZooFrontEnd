@@ -59,12 +59,6 @@ export class ZooService {
     return this.http.put(`${this.api}/animalData/${animalId}/status`, { status : newStatus });
   }
 
-  // updateAnimalStatus(animalId: number, newStatus: string) {
-  //   this.http.put(`${this.api}/animalData/${animalId}/status`, { status : newStatus }).subscribe(() => {
-  //     this.loadAnimals();
-  //   });
-  // }
-
   getStatus(): Observable<string> {
     return this.http.get(`${this.api}/zooStatus`, { responseType: 'text' as const });
   }
@@ -72,20 +66,10 @@ export class ZooService {
   updateStatus(status: string) {
     return this.http.put(`${this.api}/zooStatus/change`, { newStatus : status }, {responseType: 'text'});
   }
-
-  // updateStatus(status: string) {
-  //   (this.http.put(`${this.api}/zooStatus/change`, { newStatus : status }, {responseType: 'text'})).subscribe(() => {
-  //     this.loadZooStatus();
-  //   });
-  // }
   
   getVisitors(): Observable<string> {
     return this.http.get(`${this.api}/visitorCount`, {responseType: 'text' as const});
   }
-
-  // updateVisitors(count: number) {
-  //   return this.http.put(`${this.api}/visitorCount/change`, { newCount : count });
-  // }
 
   updateVisitors(count: number) {
     (this.http.put(`${this.api}/visitorCount/change`, { newCount : count })).subscribe(() => {

@@ -29,51 +29,8 @@ export class ZooPage {
   constructor(private zooService: ZooService, public authService: AuthService, private cd: ChangeDetectorRef) {}
 
   ngOnInit() {
-    // this.loadAnimals();
-    // this.loadStatus();
-    // this.loadVisitors();
     this.animals$ = this.zooService.animals$;
     this.status$ = this.zooService.zooStatus$;
     this.visitors$ = this.zooService.visitorCount$;
-  }
-
-  onAnimalAdded() {
-    // this.loadAnimals();
-  }
-
-  onVisitorUpdate() {
-    // this.loadVisitors();
-  }
-
-  onZooStatusUpdate() {
-    // this.loadStatus();
-  }
-
-  loadAnimals() {
-    // this.zooService.getAnimals().subscribe(data => {
-    //   console.log("Animals from the API: ", data);
-    //   this.animals$! = of(data.sort((a, b) => a.id - b.id));
-    //   // this.animals$! = of(data);
-    //   // this.animals = data.sort((a, b) => a.id - b.id);
-    //   // this.cd.detectChanges();
-    // });
-
-    // this.animals$ = this.zooService.animals$;
-  }
-
-  loadStatus() {
-  //  this.zooService.getStatus().subscribe(data => {
-  //   console.log("Current Zoo Status: ", data);
-  //   this.status$! = of(data);
-  //   // this.cd.detectChanges();
-  //  });
-  }
-
-  loadVisitors() {
-    // this.zooService.getVisitors().subscribe(data => {
-    //   console.log("Current Visitor Count: ", data);
-    //   this.visitors$! = of(data);
-    //   // this.cd.detectChanges();
-    // });
   }
 }
