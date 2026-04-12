@@ -4,7 +4,8 @@ import { ZooService } from '../../services/zoo-service';
 import { AuthService } from '../../services/auth-service';
 import { FormsModule, NgForm } from '@angular/forms';
 import { Animal } from '../../models/animal';
-import { forkJoin } from 'rxjs';
+import { forkJoin, Observable, map } from 'rxjs';
+import { take, switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-zoo-controls',
@@ -13,54 +14,45 @@ import { forkJoin } from 'rxjs';
   styleUrl: './zoo-controls.css',
 })
 export class ZooControls {
-  @Input() status : string = '';
-  @Input() visitors : string = '';
-  @Input() animals!: Animal[];
-
-  @Output() visitorUpdate = new EventEmitter<number>();
-  @Output() statusUpdate = new EventEmitter<string>();
-  @Output() animalUpdate = new EventEmitter<void>();
+  @Input() status$! : Observable<string>;
+  @Input() visitors$! : Observable<string>;
+  @Input() animals$!: Observable<Animal[]>;
 
   constructor(private zooService: ZooService, public authService: AuthService) {}
 
-  updateZooStatus(newStatus: string)
-  {
-    this.zooService.updateStatus(newStatus).subscribe({
-      next: () => {
-        let animalUpdates = this.animals.map(animal => 
-          this.zooService.updateAnimalStatus(animal.id, newStatus));
+  updateZooStatus(newStatus: string) {
+    this.zooService.updateStatus(newStatus).pipe(
+    switchMap(() => this.animals$.pipe(take(1))), // ✅ only once
+    switchMap(animals => {
+      const requests = animals.map(animal =>
+        this.zooService.updateAnimalStatus(animal.id, newStatus)
+      );
 
-          let requests = [...animalUpdates];
+      return forkJoin(requests); // ✅ wait for all
+    })
+  ).subscribe(() => {
+    if (newStatus === "Closed") {
+        this.zooService.updateVisitors(0);
+    }
 
-          if (newStatus = "Closed")
-          {
-            requests.push(this.zooService.updateVisitors(0));
-          }
-
-          forkJoin(requests).subscribe(() => {
-            this.statusUpdate.emit();
-            this.animalUpdate.emit();
-            this.visitorUpdate.emit();
-          });
-      }
-    });
-  }
+    this.zooService.loadZooStatus();
+    this.zooService.loadAnimals(); // ✅ only once AFTER all updates
+  });
+}
 
   updateVisitorCount(form: NgForm)
   {
-    if (form.invalid || this.status == "Closed")
-    {
-      return;
-    }
-
-    let newCount = form.value.visitorCount;
-    this.zooService.updateVisitors(newCount).subscribe({
-      next: () => {
-        this.visitorUpdate.emit();
+    this.status$.pipe(take(1)).subscribe(status => {
+      if (form.invalid || status == "Closed")
+      {
+        return;
       }
-    });
 
-    form.resetForm();
-    console.log(newCount);
+      let newCount = form.value.visitorCount;
+      this.zooService.updateVisitors(newCount);
+
+      form.resetForm();
+      console.log(newCount);
+    })
   }
 }

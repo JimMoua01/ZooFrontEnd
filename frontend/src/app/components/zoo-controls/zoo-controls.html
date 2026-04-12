@@ -1,13 +1,13 @@
 <div class="statHeaders">
     <div id="statusStatistics">
-        <h2 id="status">Status: <span id="zooOpenCloseStatus">{{ status }}</span></h2>
+        <h2 id="status">Status: <span id="zooOpenCloseStatus">{{ status$ | async }}</span></h2>
         @if (authService.isLoggedIn())
         {
             <div id="zooButtons">
-                @if (status == 'Closed') {
+                @if ((status$ | async)  == 'Closed') {
                     <button type="button" (click)="updateZooStatus('Open')" id="openZoo">Open Zoo</button>
                 }
-                @if (status == 'Open') {
+                @if ((status$ | async) == 'Open') {
                     <button type="button" (click)="updateZooStatus('Closed')" id="closeZoo">Close Zoo</button>
                 }
             </div>
@@ -16,7 +16,7 @@
 
     <div id="visitorStatistics">
         <div id="visitorLabel">
-            <h2>Number of Visitors: {{ visitors }} </h2>
+            <h2>Number of Visitors: {{ visitors$ | async }} </h2>
             <h2 id="visitorNum"></h2>
         </div>
 

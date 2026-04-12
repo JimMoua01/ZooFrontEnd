@@ -3,23 +3,23 @@
 
     <div class="zooStatistics">
         <h3>Total Number of Animals</h3>
-        <p><strong>Total Count: </strong>{{ totalAnimals }} animals</p>
-        <p><strong>Listed Species: </strong>{{ totalSpecies }} species</p>
+        <p><strong>Total Count: </strong>{{ totalAnimals$ | async }} animals</p>
+        <p><strong>Listed Species: </strong>{{ totalSpecies$ | async}} species</p>
     </div>
 
     <hr>
 
     <div class="zooStatistics">
         <h3>Exhibit Status</h3>
-        <p><strong>Open Exhibits: </strong><span id="exhibitOpen">{{ openedAnimals }}</span></p>
-        <p><strong>Closed Exhibits: </strong><span id="exhibitClosed">{{ closedAnimals }}</span></p>
+        <p><strong>Open Exhibits: </strong><span id="exhibitOpen">{{ openedAnimals$ | async }}</span></p>
+        <p><strong>Closed Exhibits: </strong><span id="exhibitClosed">{{ closedAnimals$ | async }}</span></p>
     </div>
 
     <hr>
 
     <div class="zooStatistics">
         <h3>Health Status</h3>
-        <p><strong>Healthy Animals: </strong><span id="healthy"> {{ healthyAnimals }}</span></p>
-        <p><strong>Sick Animals: </strong><span id="sick"> {{ sickAnimals }}</span></p>
+        <p><strong>Healthy Animals: </strong><span id="healthy"> {{ healthyAnimals$ | async }}</span></p>
+        <p><strong>Sick Animals: </strong><span id="sick"> {{ sickAnimals$ | async }}</span></p>
     </div>
 </div>

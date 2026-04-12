@@ -3,6 +3,13 @@ import { FormsModule, NgForm } from '@angular/forms';
 import { ZooService } from '../../services/zoo-service';
 import { Animal } from '../../models/animal';
 
+import { MatFormFieldModule, MatFormField, MatLabel } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { MatButton } from '@angular/material/button';
+
+import { Observable } from 'rxjs';
+
 @Component({
   selector: 'app-add-animal-form',
   imports: [FormsModule],
@@ -11,8 +18,7 @@ import { Animal } from '../../models/animal';
 })
 export class AddAnimalForm {
 
-  @Input() animals!: Animal[];
-  @Output() animalAdded = new EventEmitter<void>();
+  @Input() animals$!: Observable<Animal[]>;
   @ViewChild('imageInput') imageInput!: ElementRef;
 
   constructor(private zooService: ZooService, private cdr: ChangeDetectorRef) {}
@@ -38,51 +44,23 @@ export class AddAnimalForm {
         return;
       }
 
-    // let newId = this.animals.length;
-    // this.newAnimal.id = newId++;
+    this.zooService.addAnimal(this.newAnimal);
 
-    this.zooService.addAnimal(this.newAnimal).subscribe({
-      next: (res) => {
-        console.log("Animal added", res);
-        
-        this.animalAdded.emit();
-        form.resetForm({
-          animalName: "",
-          animalSpecies: "",
-          animalCount: null,
-          animalGender: "Male",
-          animalHealth: "Healthy",
-          animalStatus: "Open",
-          animalLongitude: null,
-          animalLatitude: null,
-          animalFeedingTime: ""
-        });
-        // this.newAnimal = {
-        //   id: 0,
-        //   name: '',
-        //   species: '',
-        //   count: 0,
-        //   gender: 'Male',
-        //   health: 'Healthy',
-        //   status: 'Open',
-        //   longitude: 0,
-        //   latitude: 0,
-        //   feeding: '',
-        //   image : ''
-        // };
-
-        this.newAnimal.gender = "Male";
-        // this.newAnimal.health = "Healthy";
-        // this.newAnimal.status = "Open";
-        // console.log('After reset: ', this.newAnimal);
-
-        this.newAnimal.image = "";
-        this.imageInput.nativeElement.value = "";
-      },
-      error: (err) => {
-        console.error(err);
-      }
+    form.resetForm({
+      animalName: "",
+      animalSpecies: "",
+      animalCount: null,
+      animalGender: "Male",
+      animalHealth: "Healthy",
+      animalStatus: "Open",
+      animalLongitude: null,
+      animalLatitude: null,
+      animalFeedingTime: ""
     });
+
+    this.newAnimal.gender = "Male";
+    this.newAnimal.image = "";
+    this.imageInput.nativeElement.value = "";
   };
 
   async onFileSelected(event: any) {

@@ -13,16 +13,16 @@
         }
     </div>
     
-    <app-zoo-controls [status] = "status" [visitors]="visitors" [animals]="animals" (visitorUpdate)="onVisitorUpdate()" (statusUpdate)="onZooStatusUpdate()" (animalUpdate)="onAnimalAdded()"></app-zoo-controls>
+    <app-zoo-controls [status$] = "status$" [visitors$]="visitors$" [animals$]="animals$"></app-zoo-controls>
     <div id="topWrapper">
         <app-location-dashboard></app-location-dashboard>
-        <app-statistic-dashboard [animals] = "animals"></app-statistic-dashboard>
+        <app-statistic-dashboard [animals$] = "animals$"></app-statistic-dashboard>
     </div>
 
     <hr class="bigDivider" />
 
     @if (authService.isLoggedIn()) {
-        <app-add-animal-form (animalAdded)="onAnimalAdded()" [animals]="animals"></app-add-animal-form>
+        <app-add-animal-form [animals$]="animals$"></app-add-animal-form>
     }
 
     <br/>
@@ -30,7 +30,7 @@
     <br/>
 
     <div id="allAnimals">
-        <app-animal-card *ngFor="let animal of animals" [animal]="animal"></app-animal-card>
+        <app-animal-card *ngFor="let animal of animals$ | async" [animal]="animal"></app-animal-card>
     </div>
 
     <hr class="bigDivider" />
